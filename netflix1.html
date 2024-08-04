@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Netflix-Clone</title>
+	<style type="text/css">
+		*{
+			font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif ;
+/*			margin-bottom: 1000px;*/
+		}
+		body, html {
+			margin: 0;
+			padding: 0;
+
+		}
+		main {
+/*			position: relative;*/
+			background-image: url('background-img');
+			background-size: cover;
+			background-position: center center;
+			height: 80vh;
+
+		}
+		.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.7);
+		}
+		.one {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			text-align: center;
+		}
+		.top {
+			position: absolute;
+			top: 20px;
+			left:-108px;
+			right: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.img {
+			height: 76px;
+			width: 556px;
+		}
+		.both {
+			display: flex;
+			align-items: center;
+		}
+		select {
+			margin-right: 10px;
+			padding: 5px;
+			background: rgba(0, 0, 0, 0.7);
+			color: white;
+			border: none;
+			outline: none;
+		}
+		#selecttop{
+			border: 1px solid #848484;
+    font-size: 11px;
+    padding-left: 16px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 13px;
+
+		}
+		.sign-in {
+			padding: 10px 20px;
+			background: red;
+			border: none;
+			color: white;
+			cursor: pointer;
+		}
+		h1, h2, h3 {
+			margin: 2px 0;
+			padding: 8px;
+			
+		}
+		h1{
+			font-size: 47px;
+		}
+		.email {
+			margin-top: 20px;
+		}
+		.email input {
+			padding: 19px;
+  width: 300px;
+  max-width: 80%;
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  outline: white;
+  border-radius: 7px;
+  font-size: inherit;
+		}
+		.email button {
+			padding: 13px 28px;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 24px;
+  position: relative;
+  top: 3px;
+  font-weight: bolder;
+  margin-left: 6px;
+		}
+		.second h1,h2{
+			color: white;
+		}
+		.second .second,.first{
+			display: flex;
+
+		}
+		.second .second{
+			flex direction: column;
+
+		}
+		
+
+		p.st{
+			color: white;
+  position: absolute;
+  top: 348px;
+  bottom: 10px;
+  left: 210px;
+  right: 10px;
+  font-size: 19px;
+		}
+		p.nd{
+			position: absolute;
+  top: 377px;
+  bottom: 10px;
+  left: 210px;
+  right: 10px;
+  font-size: 16px;
+  color: #3b3bf2;
+  margin-top: 16px;
+		}
+		img.vivek1{
+			height: 101px;
+  width: 74px;
+  position: absolute;
+  top: 348px;
+  left: 119px;
+		}
+		div.box1{
+			height: 108px;
+  width: 419px;
+  color: white;
+  border: 2px solid gray;
+  position: absolute;
+  bottom: 31px;
+  right: 109px;
+  background-color: black;
+  border-radius: 14px;
+		}
+		.container1 {
+			display: flex;
+			flex: 1fr 1 fr;
+			justify-content: center;
+			align-items: center;
+			padding: 72px 0px;
+		}
+		
+
+		.text-section1 h1{
+			padding: 0px;
+		}
+		div.text-section1{
+			width: 900px;
+		}
+		
+		
+		.container2 {
+			display: flex;
+			flex: 1fr 1 fr;
+			justify-content: center;
+			align-items: center;
+			padding: 72px 0px;
+
+		}
+		.container2 img{
+			position: relative;
+			z-index: 14;
+		}
+		video#myVideo.video2{
+			position: relative;
+  			top: -71px;
+  			left: 10px;
+  			right: 10px;
+  			bottom: 10px;
+  			height: 230px;
+  			width: 442px;
+		}
+		
+		
+		.container3 {
+			display: flex;
+			flex: 1fr 1 fr;
+			justify-content: center;
+			align-items: center;
+			padding: 72px 0px;
+		}
+		
+			
+		}
+		
+		
+		.text-section3 h1{
+			padding: 0px;
+		}
+		div.text-section3{
+			width: 900px;
+		}
+
+
+		.boxlast{
+			max-width: 53vw;
+  padding: 24px;
+  background-color: #2b2a2a;
+  justify-content: space-between;
+  display: flex;
+  margin: 11px auto;
+  color: white;
+  font-size: 22px;
+		}
+		.container4 input{
+			padding: 19px;
+  width: 300px;
+  max-width: 80%;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #666565;
+  outline: white;
+  border-radius: 7px;
+  font-size: inherit;
+		}
+		.container4 button{
+			padding: 13px 28px;
+  background: rgb(229, 9, 20);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 24px;
+  position: relative;
+  font-weight: 500;
+  margin-left: 6px;
+		}
+		.container4 .move{
+			display: flex;
+			justify-content: center;
+		}
+
+
+		.container5 .grid{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			color: rgba(255,255,255,0.7);
+
+		}
+		.all{
+			margin-top: 73px;
+  margin-left: 41px;
+
+		}
+		@media only screen and (max-width:960px	){
+			*{
+			font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif ;
+/*			margin-bottom: 1000px;*/
+		}
+		body, html {
+			margin: 0;
+			padding: 0;
+
+		}
+		main {
+/*			position: relative;*/
+			background-image: url('background-img');
+			background-size: cover;
+			background-position: center center;
+			height: 80vh;
+
+		}
+		.overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 80%;
+			background: rgba(0, 0, 0, 0.7);
+		}
+		.one {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: white;
+			text-align: center;
+		}
+		.top {
+			position: absolute;
+			top: 20px;
+			left: -108px;
+			right: 20px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		#selecttop{
+			border: 1px solid #848484;
+    font-size: 11px;
+    padding-left: 16px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-right: 13px;
+
+		}
+		.img {
+			height: 76px;
+			width: 144px;
+			margin-left: 113px;
+		}
+		.both {
+			display: flex;
+			align-items: center;
+		}
+		select {
+			margin-right: 10px;
+			background: rgba(0, 0, 0, 0.7);
+			color: white;
+			outline: none;
+
+
+		}
+		.sign-in {
+			padding: 7px 11px;
+    background: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+		}
+		h1, h2, h3 {
+			margin: 2px 0;
+			padding: 8px;
+			
+		}
+		h1{
+			font-size: 35px;
+  height: 130px;
+  width: 282px;
+  margin-left: 54px;
+		}
+		h2{
+			color: white;
+    font-size: 25px;
+    margin-right: 4px;
+		}
+		h3{
+			width: 283px;
+  height: 71px;
+  margin-left: 56px;
+  font-size: 20px;
+		}
+		.email {
+			margin-top: 20px;
+		}
+		.email input {
+			padding: 19px;
+			height: 12px;
+    width: 236px;
+    max-width: 62%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid #797676;
+    outline: white;
+    border-radius: 7px;
+    font-size: inherit;
+		}
+		.email button {
+			padding: 13px 28px;
+    background: #d71a1a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 19px;
+    position: relative;
+    top: 3px;
+    font-weight: bolder;
+    margin-left: 6px;
+		.second h1,h2{
+			color: white;
+		}
+		.second .second,.first{
+			display: flex;
+
+		}
+		.second .second{
+			flex direction: column;
+
+		}
+		
+
+		p.st{
+			color: white;
+  position: absolute;
+  top: 348px;
+  bottom: 10px;
+  left: 210px;
+  right: 10px;
+  font-size: 19px;
+		}
+		p.nd{
+			position: absolute;
+  top: 377px;
+  bottom: 10px;
+  left: 210px;
+  right: 10px;
+  font-size: 16px;
+  color: #3b3bf2;
+  margin-top: 16px;
+		}
+		img.vivek1{
+			height: 101px;
+  width: 74px;
+  position: absolute;
+  top: 348px;
+  left: 119px;
+		}
+		div.box1{
+			height: 108px;
+  width: 419px;
+  color: white;
+  border: 2px solid gray;
+  position: absolute;
+  bottom: 31px;
+  right: 109px;
+  background-color: black;
+  border-radius: 14px;
+		}
+		.container1 {
+			display: flex;
+			flex: 1fr 1 fr;
+			justify-content: center;
+			align-items: center;
+			padding: 72px 0px;
+		}
+		
+
+		.text-section1 h1{
+			padding: 0px;
+		}
+		div.text-section1{
+			width: 900px;
+		}
+		
+		
+		.container2 {
+			display: flex;
+			flex: 1fr 1 fr;
+			justify-content: center;
+			align-items: center;
+			padding: 72px 0px;
+
+		}
+		.container2 img{
+			position: relative;
+			z-index: 14;
+		}
+		video#myVideo.video2{
+			position: relative;
+  			top: -71px;
+  			left: 10px;
+  			right: 10px;
+  			bottom: 10px;
+  			height: 230px;
+  			width: 442px;
+		}
+		
+		
+		.container3 {
+			display: flex;
+			flex: 1fr 1 fr;
+			justify-content: center;
+			align-items: center;
+			padding: 72px 0px;
+		}
+		
+			
+		}
+		
+		
+		.text-section3 h1{
+			padding: 0px;
+		}
+		div.text-section3{
+			width: 900px;
+		}
+
+
+		.boxlast{
+			max-width: 53vw;
+  padding: 24px;
+  background-color: #2b2a2a;
+  justify-content: space-between;
+  display: flex;
+  margin: 11px auto;
+  color: white;
+  font-size: 22px;
+		}
+		.container4 input{
+			padding: 19px;
+  width: 300px;
+  max-width: 80%;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #666565;
+  outline: white;
+  border-radius: 7px;
+  font-size: inherit;
+		}
+		.container4 button{
+			padding: 13px 28px;
+  background: rgb(229, 9, 20);
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 24px;
+  position: relative;
+  font-weight: 500;
+  margin-left: 6px;
+		}
+		.container4 .move{
+			display: flex;
+			justify-content: center;
+		}
+
+
+		.container5 .grid{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			color: rgba(255,255,255,0.7);
+
+		}
+		.all{
+			margin-top: 73px;
+  margin-left: 41px;
+
+		}
+
+		}
+		
+	</style>
+</head>
+<body>
+	<main>
+		<div class="overlay"></div>
+		<div class="one">
+			<div class="top">
+				<img class="img" src="Netflix.svg" alt="Netflix Logo">
+				<div class="both">
+					<select id="selecttop" name="language" style="">
+						<option value="English">English</option>
+						<option value="Hindi">Hindi</option>
+					</select>
+					<button class="sign-in">Sign in</button>
+				</div>
+			</div>
+			<div>
+			<h1 class="top-heading">Unlimited movies, TV shows and more</h1>
+			<h2 class="heading">Watch anywhere. Cancel anytime.</h2>
+			<h3 class="heading">Ready to watch? Enter your email to create or restart your membership.</h3>
+			<div class="email">
+				<input type="text" name="email" placeholder="Email address">
+				<button>Get Started ></button>
+			</div>
+		</div>
+		</div>
+		
+
+
+
+		<div class="container" style="background-color: black; border-top: solid grey 10px; display: flex; flex: 1fr 1 fr; justify-content: center; align-items: center; padding: 72px 0px;">
+    <div class="text-section" style="color: white;">
+      <h1 style="font-size: 60px;">Enjoy on your TV</h1>
+      <p style="font-size:25px;">Watch on smart TVs, PlayStation, Xbox, Chromecast,<br> Apple TV, Blu-ray players and more.</p>
+    </div>
+    <div class="media-section" style="position: relative; z-index: 1;">
+      <img src="tv.png" alt="Description of image" class="image" >
+      <div style="position: absolute; top: 99px; left: 86px; z-index: -4;"><video id="myVideo" autoplay muted playsinline loop class="video" >
+        <source src="inside.m4v"></video></div>
+    </div>
+  </div>
+
+
+
+
+
+		<div class="container1" style="background-color: black; border-top: solid grey 10px;">  <div class="media-section1" style="position: relative;">
+      <div class="left-third1">
+  			<img src="mobile">
+  			<div class="box1"></div>
+  			<img src="boxshot.png" class="vivek1">
+  			<p class="st">Strange Things</p>
+
+  			<p class="nd">Downloading...</p></div>
+
+  		</div>
+    <div class="text-section1" style="color: white;">
+      <h1 style="font-size: 60px;">Download your shows to <br>watch offline</h1>
+      <p style="font-size:25px; margin-top: 16px;">Save your favourites easily and always have <br>something to watch.</p>
+    </div>
+  
+  </div>
+
+
+
+
+
+
+
+
+  	<div class="container2" style="background-color: black; border-top: solid grey 10px;">
+    <div class="text-section2" style="color: white;">
+      <h1 style="font-size: 60px;">Enjoy on your TV</h1>
+      <p style="font-size:25px;">Watch on smart TVs, PlayStation, Xbox, Chromecast,<br> Apple TV, Blu-ray players and more.</p>
+    </div>
+    <div class="media-section2" style="position: relative;">
+      <img src="rajmachaval" alt="Description of image" class="image2" style="z-index: 14;">
+      <div style="position: absolute; top: 108px; left: 86px; "><video id="myVideo" autoplay muted playsinline loop class="video2" >
+        <source src="rajmachaval1"></video></div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="container3" style="background-color: black; border-top: solid grey 10px;">  <div class="media-section3" style="position: relative;">
+      <div class="left-third3">
+  			<img src="IMAGEFORKIDS">
+  			</div>
+  		</div>
+    <div class="text-section3" style="color: white;">
+      <h1 style="font-size: 60px;">Create profiles for kids</h1>
+      <p style="font-size:25px; margin-top: 16px;">Send children on adventures with their favourite <BR>characters in a space made just for them—free with <BR>your membership.</p>
+    </div>
+  
+  </div>
+
+
+
+
+
+
+
+  <div class="container4" style="background-color: black; border-top: solid grey 10px; height: 718px;">
+  	<h1 style="color:white; display: flex; justify-content:center; ">Frequently Asked Questions</h1>
+  	<div class="boxlast">
+  	<div>What is Netflix</div>
+  	<div>+</div>
+  	</div>
+
+  	<div class="boxlast">
+  	<div>Where can I watch?</div>
+  	<div>+</div>
+  	</div>
+
+<div class="boxlast">
+  	<div>How do I cancel?</div>
+  	<div>+</div>
+  	</div>
+
+  	<div class="boxlast">
+  	<div>What can I watch on Netflix?</div>
+  	<div>+</div>
+  	</div>
+
+  	<div class="boxlast">
+  	<div>Is Netflix Good for kids?</div>
+  	<div>+</div>
+  	</div>
+  	<p style="color: white;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-top: 37px;
+  margin-bottom: 19px;
+  font-size: 23px;">Ready to watch?Enter your email to create or restart your membership.</p>
+  	<div class="move">
+  		<input type="text" name="xyz" placeholder="Email address">
+  		<button >Get Started ></button>
+  	</div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+<div class="container5" style="background-color: black; border-top: solid grey 10px; height: 317px;">
+	<div class="all">
+	<p style="color: rgba(255,255,255,0.7); margin-bottom: 6px;">Questions? Call 000-800-919-1694</p>
+	<div class="grid">
+		<div>
+		<div style="margin-bottom: 6px; font-size: 13px;">FAQ</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Investor Realations</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Privacy</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Speed Test</div>
+	</div>
+	<div>
+		<div style="margin-bottom: 6px; font-size: 13px;">FAQ</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Investor Realations</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Privacy</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Speed Test</div>
+	</div>
+	<div>
+		<div style="margin-bottom: 6px; font-size: 13px;">FAQ</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Investor Realations</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Privacy</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Speed Test</div>
+	</div>
+	<div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Investor Realations</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Privacy</div>
+		<div style="margin-bottom: 6px; font-size: 13px;">Speed Test</div>
+	</div>
+	</div>
+	<select name="language" style="border: 1px solid #848484;
+  font-size: 17px;
+  padding-left: 23px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-right: 13px;
+  border-radius: 4px;
+  margin-top: 15px;">
+						<option value="English">English</option>
+						<option value="Hindi">Hindi</option>
+					</select>
+<p style="color: white;">Netflix India</p>
+	</div>
+
+
+	
+
+
+
+
+
+
+
+</div>
+	</main>
+</body>
+</html>
